@@ -3,8 +3,6 @@
 The modern installer of Arch/Artix Linux written on C.
 ![MIT License](LICENSE)
 
-It uses notcurses, modern TUI Library that provides many useful and cool features!
-
 ## How to install and use?
 
 Just execute this command in your Arch/Artix liveiso:
@@ -22,5 +20,5 @@ After that you need to execute ArchSonic installer:
 
 Dependecies:
 - curl
-- notcurses (build dependency)
+- ncurses (build dependency)
 - make (build dependency)
