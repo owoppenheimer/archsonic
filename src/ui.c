@@ -8,9 +8,9 @@
 #include <ncurses.h>
 #include "../include/archsonic_types.h" /* Some useful types */
 
-int main(void) {
+int main(int argc, char* argv[]) {
    initscr();
-   
+ 
    term_point point = { 10, 10 };
    move(point.y, point.x);
 
@@ -21,7 +21,7 @@ int main(void) {
 
       delch();
       short c = getch();
-      mvprintw(0, 0, "%hd", c);
+      if (c == 27) break;
       refresh();
 
       move(point.y, point.x);
