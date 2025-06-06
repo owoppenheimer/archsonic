@@ -61,7 +61,7 @@ void arch_install(struct arch_packages_c* apc, struct arch_packages* ap) {
    printf("Added packages by user: %d", apc->packages_c);
    printf("Excluded packages by user: %d", apc->excluded_packages_c);
 
-   size_t cmd_size = 700;
+   size_t cmd_size = 100;
    for (int i = 0; i < ap->count; i++) {
       cmd_size += strlen(ap->packages[i]) + 1;
    }
