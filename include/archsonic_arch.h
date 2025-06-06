@@ -28,7 +28,7 @@ void free_package_list(struct arch_packages* ap);
 
 void rm_package(struct arch_packages* ap, const char* name);
 
-static unsigned char arch_installation_status;
+extern unsigned char arch_installation_status;
 
 void arch_install(int packages_c, int excluded_packages_c, struct arch_packages* packages);
 

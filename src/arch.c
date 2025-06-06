@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+unsigned char arch_installation_status = 0;
+
 void geterror(unsigned short error_code, const char* error_description) {
    fprintf(stderr, "An error has caused while installing system.. Error code: %hu.. Description:\n%s",
       error_code,
