@@ -26,12 +26,13 @@ void init_install(struct arch_packages* ap, int initial_capacity) {
 }
 
 /* Add a package to list */
-void add_package(struct arch_packages* ap, const char* name) {
+void add_package(struct arch_packages* ap, struct arch_packages_c* apc, const char* name) {
     if (ap->count >= ap->capacity) {
         ap->capacity *= 2;
         ap->packages = realloc(ap->packages, ap->capacity * sizeof(char*));
     }
     ap->packages[ap->count++] = strdup(name);
+    apc->packages_c++;
 }
 
 /* Free memory after installation */
@@ -45,17 +46,20 @@ void free_package_list(struct arch_packages* ap) {
 }
 
 /* Remove the package from list */
-void rm_package(struct arch_packages* ap, const char* name) {
+void rm_package(struct arch_packages* ap, struct arch_packages_c* apc, const char* name) {
    for (int i = 0; i < ap->capacity; i++) {
       if (ap->packages[i] == name) {
          free(ap->packages[i]);
       }
    }
+   apc->excluded_packages_c++;
 }
 
 /* Arch installation */
-void arch_install(int packages_c, int excluded_packages_c, struct arch_packages* ap) {
+void arch_install(struct arch_packages_c* apc, struct arch_packages* ap) {
    printf("Starting installation..");
+   printf("Added packages by user: %d", apc->packages_c);
+   printf("Excluded packages by user: %d", apc->excluded_packages_c);
 
    size_t cmd_size = 700;
    for (int i = 0; i < ap->count; i++) {
