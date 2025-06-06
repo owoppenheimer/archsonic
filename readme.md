@@ -22,3 +22,4 @@ Dependecies:
 - curl
 - ncurses (build dependency)
 - make (build dependency)
+- clang (but you can use gcc, see ./Makefile)
