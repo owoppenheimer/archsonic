@@ -92,18 +92,18 @@ void arch_install(struct arch_packages_c* apc, struct arch_packages* ap, const c
 
    /* Prepare a command */
    strcpy(cmd, "pacstrap -K /mnt");
-   for (int i = 0; i < sizeof(base_pkgs) - sizeof(base_pkgs[0]); i++) {
+   for (int i = 0; i < sizeof(base_pkgs) / sizeof(base_pkgs[0]); i++) {
       strcat(cmd, " ");
       strcat(cmd, base_pkgs[i]);
    }
    if (strcmp(kernel, "linux") == 0) { // Packages for linux kernel
-      for (int i = 0; i < sizeof(linux_pkgs) - sizeof(linux_pkgs[0]); i++) {
+      for (int i = 0; i < sizeof(linux_pkgs) / sizeof(linux_pkgs[0]); i++) {
          strcat(cmd, " ");
          strcat(cmd, linux_pkgs[i]);
       }
    }
    else if (strcmp(kernel, "linux-zen") == 0) { // Packages for zen kernel
-      for (int i = 0; i < sizeof(linux_zen_pkgs) - sizeof(linux_zen_pkgs[0]); i++) {
+      for (int i = 0; i < sizeof(linux_zen_pkgs) / sizeof(linux_zen_pkgs[0]); i++) {
          strcat(cmd, " ");
          strcat(cmd, linux_zen_pkgs[i]);
       }
