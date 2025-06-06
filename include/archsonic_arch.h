@@ -22,14 +22,14 @@ void geterror(unsigned short error_code, const char* error_description);
 
 void init_install(struct arch_packages* ap, int init_capacity);
 
-void add_package(struct arch_packages* ap, const char* name);
+void add_package(struct arch_packages* ap, struct arch_packages_c* apc, const char* name);
 
 void free_package_list(struct arch_packages* ap);
 
-void rm_package(struct arch_packages* ap, const char* name);
+void rm_package(struct arch_packages* ap, struct arch_packages_c* apc, const char* name);
 
 extern unsigned char arch_installation_status;
 
-void arch_install(int packages_c, int excluded_packages_c, struct arch_packages* packages);
+void arch_install(struct arch_packages_c* apc, struct arch_packages* packages);
 
 #endif
