@@ -16,6 +16,7 @@ void init_install(struct arch_packages* ap, int initial_capacity) {
     ap->packages = malloc(initial_capacity * sizeof(char*));
     if (!ap->packages) {
       geterror(1, "Failed to allocate memory"); 
+      arch_installation_status = 1; // error
       return;
     }
     ap->capacity = initial_capacity;
@@ -62,6 +63,7 @@ void arch_install(int packages_c, int excluded_packages_c, struct arch_packages*
    char* cmd = malloc(cmd_size);
    if (!cmd) {
       geterror(1, "Failed to allocate memory.");
+      arch_installation_status = 1; // error
       return;
    }
 }
