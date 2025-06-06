@@ -79,4 +79,5 @@ void arch_install(struct arch_packages_c* apc, struct arch_packages* ap) {
    }
 
    arch_installation_status = system(cmd); // execute this shit ^3^
+   free(cmd);
 }
