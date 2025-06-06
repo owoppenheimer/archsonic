@@ -5,6 +5,24 @@
 #include <string.h>
 
 unsigned char arch_installation_status = 0;
+const char* linux_pkgs[] = {
+   "linux",
+   "linux-headers"
+};
+
+const char* linux_zen_pkgs[] = {
+   "linux-zen",
+   "linux-zen-headers"
+};
+
+const char* base_pkgs[] = {
+   "base",
+   "base-devel",
+   "bash-completion",
+   "efibootmgr",
+   "grub",
+   "dhcpcd",
+};
 
 void geterror(unsigned short error_code, const char* error_description) {
    fprintf(stderr, "An error has caused while installing system.. Error code: %hu.. Description:\n%s",
@@ -56,7 +74,7 @@ void rm_package(struct arch_packages* ap, struct arch_packages_c* apc, const cha
 }
 
 /* Arch installation */
-void arch_install(struct arch_packages_c* apc, struct arch_packages* ap) {
+void arch_install(struct arch_packages_c* apc, struct arch_packages* ap, const char* kernel) {
    printf("Starting installation..");
    printf("Added packages by user: %d", apc->packages_c);
    printf("Excluded packages by user: %d", apc->excluded_packages_c);
@@ -72,7 +90,25 @@ void arch_install(struct arch_packages_c* apc, struct arch_packages* ap) {
       return;
    }
 
+   /* Prepare a command */
    strcpy(cmd, "pacstrap -K /mnt");
+   for (int i = 0; i < sizeof(base_pkgs) - sizeof(base_pkgs[0]); i++) {
+      strcat(cmd, " ");
+      strcat(cmd, base_pkgs[i]);
+   }
+   if (strcmp(kernel, "linux") == 0) { // Packages for linux kernel
+      for (int i = 0; i < sizeof(linux_pkgs) - sizeof(linux_pkgs[0]); i++) {
+         strcat(cmd, " ");
+         strcat(cmd, linux_pkgs[i]);
+      }
+   }
+   else if (strcmp(kernel, "linux-zen") == 0) { // Packages for zen kernel
+      for (int i = 0; i < sizeof(linux_zen_pkgs) - sizeof(linux_zen_pkgs[0]); i++) {
+         strcat(cmd, " ");
+         strcat(cmd, linux_zen_pkgs[i]);
+      }
+   }
+
    for (int i = 0; i < ap->count; i++) {
       strcat(cmd, " ");
       strcat(cmd, ap->packages[i]);
