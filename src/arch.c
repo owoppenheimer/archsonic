@@ -48,7 +48,7 @@ void free_package_list(struct arch_packages* ap) {
 /* Remove the package from list */
 void rm_package(struct arch_packages* ap, struct arch_packages_c* apc, const char* name) {
    for (int i = 0; i < ap->capacity; i++) {
-      if (ap->packages[i] == name) {
+      if (strcmp(ap->packages[i], name) == 0) {
          free(ap->packages[i]);
       }
    }
@@ -65,11 +65,18 @@ void arch_install(struct arch_packages_c* apc, struct arch_packages* ap) {
    for (int i = 0; i < ap->count; i++) {
       cmd_size += strlen(ap->packages[i]) + 1;
    }
-
    char* cmd = malloc(cmd_size);
    if (!cmd) {
       geterror(1, "Failed to allocate memory.");
       arch_installation_status = 1; // error
       return;
    }
+
+   strcpy(cmd, "pacstrap -K /mnt");
+   for (int i = 0; i < ap->count; i++) {
+      strcat(cmd, " ");
+      strcat(cmd, ap->packages[i]);
+   }
+
+   arch_installation_status = system(cmd); // execute this shit ^3^
 }
