@@ -3,7 +3,7 @@
 The modern installer of Arch/Artix Linux written on C.
 ![MIT License](LICENSE)
 
-## How to install and use?
+## Branches
 
 Just execute this command in your Arch/Artix liveiso:
 
