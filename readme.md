@@ -16,7 +16,7 @@ After that you need to execute ArchSonic installer:
 
 `./install.sh`
 
-!*ArchSonic installation script requires root access*! (in installation iso's you're already root)
+!*ArchSonic installation script requires root access*! (in installation isos you're already root)
 
 Dependecies:
 - curl
