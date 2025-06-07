@@ -5,18 +5,8 @@ The modern installer of Arch/Artix Linux written on C.
 
 ## Branches
 
-Just execute this command in your Arch/Artix liveiso:
-
-`curl -fsSL https://raw.githubusercontent.com/owoppenheimer/archsonic/refs/heads/main/install/preinstall.sh | sh`
-
-This will download an installation script
-
-
-After that you need to execute ArchSonic installer:
-
-`./install.sh`
-
-!*ArchSonic installation script requires root access*! (in installation isos you're already root)
+1. Arch Branch - contains ArchSonic for Arch Linux (isn't done yet)
+2. Artix Branch (empty) - will contain ArchSonic for Artix Linux
 
 Dependecies:
 - curl
