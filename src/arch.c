@@ -5,16 +5,16 @@
 #include <string.h>
 
 unsigned char arch_installation_status = 0;
+
+/* Packages */
 const char* linux_pkgs[] = {
    "linux",
    "linux-headers"
 };
-
 const char* linux_zen_pkgs[] = {
    "linux-zen",
    "linux-zen-headers"
 };
-
 const char* base_pkgs[] = {
    "base",
    "base-devel",
@@ -24,6 +24,7 @@ const char* base_pkgs[] = {
    "dhcpcd",
 };
 
+/* Functions */
 void geterror(unsigned short error_code, const char* error_description) {
    fprintf(stderr, "An error has caused while installing system.. Error code: %hu.. Description:\n%s",
       error_code,
@@ -57,6 +58,7 @@ void add_package(struct arch_packages* ap, struct arch_packages_c* apc, const ch
 void free_package_list(struct arch_packages* ap) {
     for (int i = 0; i < ap->count; i++) {
         free(ap->packages[i]);
+        ap->packages[i] = NULL;
     }
     free(ap->packages);
     ap->count = 0;
@@ -68,6 +70,7 @@ void rm_package(struct arch_packages* ap, struct arch_packages_c* apc, const cha
    for (int i = 0; i < ap->capacity; i++) {
       if (strcmp(ap->packages[i], name) == 0) {
          free(ap->packages[i]);
+         ap->packages[i] = NULL;
       }
    }
    apc->excluded_packages_c++;

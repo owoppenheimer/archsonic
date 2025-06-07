@@ -30,6 +30,6 @@ void rm_package(struct arch_packages* ap, struct arch_packages_c* apc, const cha
 
 extern unsigned char arch_installation_status;
 
-void arch_install(struct arch_packages_c* apc, struct arch_packages* packages);
+void arch_install(struct arch_packages_c* apc, struct arch_packages* packages, const char* kernel);
 
 #endif
