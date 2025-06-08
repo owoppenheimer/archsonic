@@ -16,7 +16,7 @@ typedef struct arch_packages {
    int capacity;
    int count;
 
-};
+} arch_packages;
 
 void geterror(unsigned short error_code, const char* error_description);
 
