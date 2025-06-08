@@ -50,7 +50,9 @@ void init_install(struct arch_packages* ap, int initial_capacity) {
 void add_package(struct arch_packages* ap, struct arch_packages_c* apc, const char* name) {
     /* Check the package name */
     for (int i = 0; i < strlen(name); i++) {
-      if (name[i] == ';' || name[i] == '&' && name[i + 1] == '&' /* OwO Injection detected OwO */) {
+      if (name[i] == ';' || name[i] == '&' && name[i + 1] == '&' ||
+         name[strlen(name) - 1] == ';' || name[strlen(name) - 1] == '&' && name[strlen(name) - 2] == '&'
+         ) { /* OwO Injection detected!! OwO */
          geterror(2, "WARNING: potentially dangerous injection has been detected!\
          did you misspell package name or something?");
          return;
