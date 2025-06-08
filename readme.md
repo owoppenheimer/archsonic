@@ -30,4 +30,6 @@ TODO:
 3. locales
 5. tui
 
+*4 is an unlucky number!*
+
 and more..
