@@ -10,6 +10,7 @@ The modern installer of Arch/Artix Linux written on C.
 
 Dependecies:
 - curl
-- ncurses (build dependency)
+- wget
+- ncurses
 - make (build dependency)
 - clang (but you can use gcc, see ./Makefile)
