@@ -5,7 +5,7 @@ The modern installer of Arch/Artix Linux written on C.
 
 ## Branches
 
-1. Arch Branch - contains ArchSonic for Arch Linux (isn't done yet)
+1. Arch Branch - contains ArchSonic for Arch Linux (isn't done yet) (You're currently here)
 2. Artix Branch (empty) - will contain ArchSonic for Artix Linux
 
 Dependecies:
