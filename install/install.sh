@@ -1,11 +1,6 @@
-# Installation script. Version - alpha 0.1 |
-#                                          |
-# owoppenheimer, 06/04/2025                |
-# ------------------------------------     |
-# <owoppenheimer.ads@gmail.com>            |
-
 VERSION="alpha 0.1"
 SOURCE="https://github.com/owoppenheimer/archsonic"
+CHECKWGET=`sudo pacman -Qs wget`
 
 greeter() {
    echo "
@@ -23,12 +18,18 @@ greeter() {
 }
 
 main() {
+   if [[ `whoami` != "root" ]]; then
+      echo "You aren't root! Please execute this script as root!"
+      return 1
+   fi
    greeter
 
    read -p "Use pre-compiled binary? [Y/n]: " compile
 
    if [[ "$compile" == "" || $compile == "y" || $compile == "Y" ]]; then
+      if [[  ]]
       echo "Ok.. Downloading tar.gz release from $SOURCE"
+      wget https://github.com/user-attachments/files/20644346/as.tar.gz
    fi
 }
 
