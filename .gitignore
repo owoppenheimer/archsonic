@@ -1,0 +1,5 @@
+.vscode/settings.json
+bin/archsonic
+obj/arch.o
+obj/archsonic.o
+obj/cmds.o
