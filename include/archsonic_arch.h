@@ -10,7 +10,7 @@ typedef struct arch_packages_c {
 
 } arch_packages_c;
 
-struct arch_packages {
+typedef struct arch_packages {
 
    char** packages;
    int capacity;
