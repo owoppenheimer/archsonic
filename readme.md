@@ -14,3 +14,20 @@ Dependecies:
 - ncurses
 - make (build dependency)
 - clang (but you can use gcc, see ./Makefile)
+
+## This project isn't done yet, current release is just for test!
+
+DONE:
+
+1. managing pacstrap command
+2. executing pre- post- installation commands
+3. installation script (thing, that downloads and builds ArchSonic)
+
+TODO:
+
+1. disk partitioning
+2. timezones
+3. locales
+5. tui
+
+and more..
