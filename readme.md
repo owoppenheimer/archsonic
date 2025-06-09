@@ -20,8 +20,9 @@ Dependecies:
 DONE:
 
 1. managing pacstrap command
-2. executing pre- post- installation commands
+2. executing configuration commands from an array
 3. installation script (thing, that downloads and builds ArchSonic)
+5. adding users and setting passwords
 
 TODO:
 
