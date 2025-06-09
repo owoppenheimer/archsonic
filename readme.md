@@ -3,7 +3,7 @@
 The modern installer of Arch/Artix Linux written on C.
 ![MIT License](LICENSE)
 
-## Branches
+### Branches
 
 1. Arch Branch - contains ArchSonic for Arch Linux (isn't done yet) (You're currently here)
 2. Artix Branch (empty) - will contain ArchSonic for Artix Linux
@@ -15,7 +15,7 @@ Dependecies:
 - make (build dependency)
 - clang (but you can use gcc, see ./Makefile)
 
-## This project isn't done yet, current release is just for test!
+### This project isn't done yet, current release is just for test!
 
 DONE:
 
